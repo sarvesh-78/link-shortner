@@ -101,12 +101,16 @@ Supabase is an open-source Firebase alternative for backend services.
    - Configure the database and project settings.
    - Create two tables in supabase project dashboard structure like this :
    - URLs Table
-   - ![Table Structure](https://your-image-url.com/table.png)
-   - ![Table Structure](https://your-image-url.com/table.png)
+   - ![Table Structure](https://github.com/Tushar292004/link-shortner/blob/main/workshop-images/Screenshot%202025-02-02%20152621.png)\
+   - custom_url settings :
+   - ![Table Structure](https://github.com/Tushar292004/link-shortner/blob/main/workshop-images/Screenshot%202025-02-02%20152636.png)
+   
 
    - Clicks Table
-   - ![Table Structure](https://your-image-url.com/table.png)
-   - ![Table Structure](https://your-image-url.com/table.png)
+   - ![Table Structure](https://github.com/Tushar292004/link-shortner/blob/main/workshop-images/Screenshot%202025-02-02%20153045.png)
+   - Update the foregin key relationshios to clicks
+   - ![Table Structure](https://github.com/Tushar292004/link-shortner/blob/main/workshop-images/Screenshot%202025-02-02%20152840.png)
+   - ![Table Structure](https://github.com/Tushar292004/link-shortner/blob/main/workshop-images/Screenshot%202025-02-02%20152851.png)
 
 
 ---
