@@ -1,3 +1,4 @@
+import RequireAuth from "./components/require-auth";
 import UrlProvider from "./context";
 import AppLayout from "./layouts/app-layout";
 import Auth from "./pages/auth";
@@ -23,13 +24,17 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: (
-          <Dashboard />
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
         ),
       },
       {
         path: "/link/:id",
         element: (
-          <LinkPage />
+          <RequireAuth> 
+            <LinkPage />
+          </RequireAuth>
         ),
       },
       {

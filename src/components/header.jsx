@@ -10,11 +10,16 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Button } from "./ui/button";
 import { LinkIcon, LogOut } from "lucide-react";
+import { UrlState } from "@/context";
+import useFetch from "@/hooks/use-fetch";
+import { logout } from "@/db/apiAuth";
+import { BarLoader } from "react-spinners";
 
 const Header = () => {
-
+  const {loading, fn: fnLogout} = useFetch(logout);
   const navigate = useNavigate();
-  const user = false;
+  //getting the user object
+  const {user, fetchUser} = UrlState();
 
   return (
     <>
@@ -36,7 +41,7 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuLabel>
-                    Your Name
+                    {user?.user_metadata?.name}
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
@@ -46,6 +51,12 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem
+                    onClick={() => {
+                      fnLogout().then(() => {
+                        fetchUser();
+                        navigate("/auth");
+                      });
+                    }}
                     className="text-red-400"
                   >
                     <LogOut className="mr-2 h-4 w-4" />
@@ -57,7 +68,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {/* {loading && <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />} */}
+      {loading && <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />} 
     </>
   );
 }
